@@ -6,7 +6,7 @@ python -m venv .venv
 
 .venv\Scripts\activate
 
-pip install .
+pip install -e .
 
 you also need a .env file
 
