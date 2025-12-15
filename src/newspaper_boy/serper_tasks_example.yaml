@@ -1,0 +1,18 @@
+tasks:
+  - raw_string: "Pony OR Ponies OR \"My Little Pony\""
+    csv_or_list: "pony, ponies, my little pony, mlp, brony, friendship is magic, twilight sparkle, rainbow dash, pinkie pie, fluttershy, rarity, applejack, equestria"
+    country: "ca"
+    location: "Canada"
+    language: "en"
+    date_range: "past_hour"
+    max_page_count: 5
+    exclude_publishers: []
+
+  - raw_string: "(site:mylittlepony.hasbro.com OR site:equestriadaily.com OR site:mlpforums.com OR site:mlpmerch.com OR site:mlptp.net OR site:mlp.fandom.com OR site:mylittlewiki.org OR site:derpibooru.org OR site:poniverse.net OR site:reddit.com/r/mylittlepony)"
+    csv_or_list: "pony, ponies, my little pony, mlp, brony, friendship is magic, twilight sparkle, rainbow dash, pinkie pie, fluttershy, rarity, applejack, equestria"
+    country: "ca"
+    location: "Canada"
+    language: "en"
+    date_range: "past_hour"
+    max_page_count: 5
+    exclude_publishers: []
