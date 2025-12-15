@@ -9,7 +9,11 @@ python -m venv .venv
 pip install .
 
 you also need a .env file
+
+see example.env files
+
 you need some .yaml files 
 
+see example.yaml files
 
 python -m chuang_tzu_bot
