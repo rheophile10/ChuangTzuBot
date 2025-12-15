@@ -20,9 +20,6 @@ ALLOWED_CHAT = int(os.getenv("ALLOWED_CHAT_ID"))
 YOUR_TELEGRAM_USER_ID = int(os.getenv("YOUR_TELEGRAM_USER_ID", "0"))
 VERBOSE_MODE = False
 
-with open("prompt.txt", "r", encoding="utf-8") as f:
-    SYSTEM_PROMPT = f.read().strip()
-
 keywords = ["chuangtzu", "@chuangtzubot", "bot"]
 
 HELP_TEXT = """
