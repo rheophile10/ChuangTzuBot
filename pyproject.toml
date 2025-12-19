@@ -11,8 +11,7 @@ requires-python = ">=3.12"
 dependencies = [
     "aiogram",
     "python-dotenv",
-    "openai",
-    "newspaper_boy @ git+https://github.com/rheophile10/msm.git",
+    "web_resources @ git+https://github.com/rheophile10/web_resources.git",
 ]
 
 [tool.hatch.metadata]
