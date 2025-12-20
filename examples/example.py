@@ -50,7 +50,7 @@ async def demo_polling():
     try:
         await start_polling(
             bot_enviro="TEST",  # Change to "PROD" if needed
-            polling_timeout=30,
+            polling_timeout=3000,
             # allowed_chat_ids=...  # Optional: override env list
         )
     except KeyboardInterrupt:

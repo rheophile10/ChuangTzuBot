@@ -1,16 +1,14 @@
-# chuang_tzu_bot/__init__.py
 import os
 from typing import Iterable, Literal
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
-
+import asyncio
 from aiogram import Bot, Dispatcher, F
 from aiogram.enums import ParseMode
 from aiogram.client.default import DefaultBotProperties
 from chuang_tzu_bot.routes import router
 
-# Load environment variables ONCE when the module is imported
-load_dotenv()  # <-- This runs only once!
+load_dotenv()
 
 BotEnviro = Literal["TEST", "PROD"]
 
@@ -36,9 +34,9 @@ def _get_allowed_chat_ids(bot_enviro: BotEnviro = "TEST") -> Iterable[int | str]
         allowed_ids.append(int(user_chat_id))
 
     if bot_enviro == "TEST":
-        allowed_chats_str = os.getenv("TEST_ALLOWED_CHAT_IDS", "")
+        allowed_chats_str = os.getenv("TEST_ALLOWED_CHAT_ID", "")
     elif bot_enviro == "PROD":
-        allowed_chats_str = os.getenv("PROD_ALLOWED_CHAT_IDS", "")
+        allowed_chats_str = os.getenv("PROD_ALLOWED_CHAT_ID", "")
     else:
         raise ValueError("bot_enviro must be 'TEST' or 'PROD'")
 
@@ -120,6 +118,8 @@ async def start_polling(
     print(f"Allowed chats: {allowed_set}")
     print(f"Polling timeout: {polling_timeout}s")
 
+    await bot.delete_webhook(drop_pending_updates=True)
+
     try:
         await dp.start_polling(
             bot,
@@ -127,6 +127,8 @@ async def start_polling(
             allowed_updates=["message"],
         )
     finally:
+        await dp.stop_polling()
+        await asyncio.sleep(1)
         await bot.session.close()
 
 
